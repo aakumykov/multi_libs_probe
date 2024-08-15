@@ -42,4 +42,9 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.androidx.espresso.core
+
+    implementation 'com.github.aakumykov.multi_libs_probe:qwerty:0.0.2-alpha'
+    implementation 'com.github.aakumykov.multi_libs_probe:qwerty_local:0.0.2-alpha'
+    implementation 'com.github.aakumykov.multi_libs_probe:qwerty_yandex:0.0.2-alpha'
+
 }

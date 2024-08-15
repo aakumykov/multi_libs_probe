@@ -5,6 +5,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.github.aakumykov.qwerty.Qwerty
+import com.github.aakumykov.qwerty_local.QwertyLocal
+import com.github.aakumykov.qwerty_yandex.QwertyYandex
 
 class RemoteLibActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,5 +19,8 @@ class RemoteLibActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val qwertyLocal = QwertyLocal().apply { makeFun() }
+        val qwertyYandex = QwertyYandex().apply { makeFun() }
     }
 }
