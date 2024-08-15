@@ -9,6 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/app_remote_lib" />
             <option value="$PROJECT_DIR$/qwerty" />
             <option value="$PROJECT_DIR$/qwerty_local" />
             <option value="$PROJECT_DIR$/qwerty_yandex" />
