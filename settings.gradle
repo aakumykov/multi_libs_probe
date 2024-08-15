@@ -15,7 +15,9 @@ dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
+        mavenLocal()
         mavenCentral()
+        maven { url "https://jitpack.io" }
     }
 }
 
@@ -24,3 +26,4 @@ include ':app'
 include ':qwerty'
 include ':qwerty_local'
 include ':qwerty_yandex'
+include ':app_remote_lib'

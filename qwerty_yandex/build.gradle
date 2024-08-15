@@ -1,10 +1,25 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id 'maven-publish'
+}
+
+project.ext {
+    artifactId = 'qwerty_yandex'
+    groupId = 'com.github.aakumykov'
+
+    majorVersionNum = commonMajorVersionNumber
+    minorVersionNum = commonMinorVersionNumber
+    patchVersionNum = commonPatchVersionNumber
+    suffix = commonVersionSuffix
+
+    versionCode = commonVersionCode
+
+    versionName = majorVersionNum + "." + minorVersionNum + "." + patchVersionNum + "-" + suffix
 }
 
 android {
-    namespace 'com.github.aakumykov.qwerty_yandex'
+    namespace groupId + '.' + artifactId
     compileSdk 34
 
     defaultConfig {
@@ -27,15 +42,32 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    publishing {
+        singleVariant('release') {
+            withSourcesJar()
+        }
+    }
 }
 
 dependencies {
 
-    api project(':qwerty')
     implementation libs.androidx.core.ktx
     implementation libs.androidx.appcompat
     implementation libs.material
     testImplementation libs.junit
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.androidx.espresso.core
+}
+
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = project.groupId
+            artifactId = project.artifactId
+            version = versionName
+            afterEvaluate {
+                from components.release
+            }
+        }
+    }
 }
